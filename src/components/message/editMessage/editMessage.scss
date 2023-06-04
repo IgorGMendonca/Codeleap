@@ -1,0 +1,189 @@
+@import '@radix-ui/colors/mauve.css';
+
+.DialogOverlayMessageEdit {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    background: rgba(119, 119, 119, 0.8);
+}
+
+.DialogContentMessageEdit {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 752px;
+    height: 334px;
+
+    border: 1px solid #CCCCCC;
+    border-radius: 16px;
+
+    min-width: 32rem;
+    background: rgba(255, 255, 255, 1);
+
+    .DialogTitleMessageEdit {
+        color: var(--mauve12);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+
+        margin: 24px 24px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+
+            margin-left: 24px;
+        }
+
+        input {
+            margin: 24px 24px;
+            margin-top: 8px;
+            padding-left: 10.68px;
+
+            width: 704px;
+            height: 32px;
+
+            background: #FFFFFF;
+            border: 1px solid #777777;
+            border-radius: 8px;
+            box-sizing: border-box;
+
+            &::placeholder {
+                padding-top: 8px;
+                color: #CCCCCC;
+                font-size: 14px;
+            }
+        }
+
+        textarea {
+            margin: 24px 24px;
+            margin-top: 8px;
+            padding-left: 10.68px;
+            padding-top: 7px;
+
+            width: 704px;
+            height: 74px;
+
+            background: #FFFFFF;
+            border: 1px solid #777777;
+            border-radius: 8px;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: #CCCCCC;
+                font-size: 14px;
+            }
+        }
+
+        div {
+            display: flex;
+            justify-content: flex-end;
+
+            button:first-child {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: flex-end;
+
+                margin-right: 16px;
+
+                width: 120px;
+                height: 32px;
+
+                background: #FFFFFF;
+                border: 1px solid #999999;
+                border-radius: 8px;
+
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 19px;
+                color: #000000;
+
+                cursor: pointer;
+            }
+
+            button:last-child {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: flex-end;
+
+                margin-right: 24px;
+
+                width: 120px;
+                height: 32px;
+
+                background: #47B960;
+                border: 0.5px solid #47B960;
+                border-radius: 8px;
+
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 19px;
+                color: #FFFFFF;
+
+                cursor: pointer;
+            }
+
+            button:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            button:not(:disabled):hover {
+                transition: background-color 0.2s;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .DialogContentMessageEdit {
+        width: 90%;
+        height: auto;
+        min-width: unset;
+        max-width: 500px;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        input, textarea {
+            width: 86% !important;
+        }
+    }
+
+    .DialogTitleMessageEdit {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 16px;
+    }
+
+    .DialogContentMessageEdit div {
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        button {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+}

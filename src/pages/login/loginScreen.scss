@@ -1,0 +1,146 @@
+@import '@radix-ui/colors/mauve.css';
+
+button,
+fieldset,
+input {
+    all: unset;
+}
+
+.DialogOverlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    background: rgba(204, 204, 204, 1);
+}
+
+.DialogContent {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 500px;
+    height: 205px;
+
+    border: 1px solid #CCCCCC;
+    border-radius: 16px;
+
+    min-width: 32rem;
+    background: rgba(255, 255, 255, 1);
+
+    .DialogTitle {
+        color: var(--mauve12);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+
+        margin: 24px 24px;
+    }
+
+    .DialogDescription {
+        margin: 24px 24px 8px;
+
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000000;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            margin: 0 24px;
+            padding-left: 11.2px;
+
+            width: 452px;
+            height: 32px;
+
+            background: #FFFFFF;
+            border: 1px solid #777777;
+            border-radius: 8px;
+
+            &::placeholder {
+                padding-top: 8px;
+                color: #CCCCCC;
+                font-size: 14px;
+            }
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+
+            margin-top: 16px;
+            margin-right: 23px;
+
+            width: 111px;
+            height: 32px;
+
+            background: #7695EC;
+            border-radius: 8px;
+
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+
+            cursor: pointer;
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            &:not(:disabled):hover {
+                background-color: #4772e9;
+                transition: background-color 0.2s;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .DialogContent {
+        width: 300px;
+        height: 205px;
+
+        min-width: 16rem;
+
+        .DialogTitle {
+            margin: 24px 24px 10px;
+            font-size: 16px !important;
+        }
+
+        .DialogDescription {
+            margin-top: 0 !important;
+            margin-left: 24px !important;
+
+            font-size: 12px !important;
+        }
+
+        input {
+            padding-left: 11.2px;
+    
+            width: 80% !important;
+    
+            border-radius: 8px;
+    
+            &::placeholder {
+                padding-top: 0 !important;
+                font-size: 12px !important;
+            }
+        }
+    }
+
+}

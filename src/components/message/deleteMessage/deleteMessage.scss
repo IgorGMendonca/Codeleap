@@ -1,0 +1,120 @@
+@import '@radix-ui/colors/mauve.css';
+
+
+.DialogOverlayMessageDelete {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    background: rgba(119, 119, 119, 0.8);
+}
+
+.DialogContentMessageDelete {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 660px;
+    height: 146px;
+
+    border: 1px solid #CCCCCC;
+    border-radius: 16px;
+
+    min-width: 32rem;
+    background: rgba(255, 255, 255, 1);
+
+    .DialogTitleMessageDelete {
+        color: var(--mauve12);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+
+        margin: 24px 24px;
+    }
+
+    div {
+        display: flex;
+        justify-content: flex-end;
+
+        button:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+
+            margin-right: 16px;
+
+            width: 120px;
+            height: 32px;
+
+            background: #FFFFFF;
+            border: 1px solid #999999;
+            border-radius: 8px;
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+
+            cursor: pointer;
+        }
+
+        button:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+
+            margin-right: 24px;
+
+            width: 120px;
+            height: 32px;
+
+            background: #FF5151;
+            border: 0.5px solid #FF5151;
+            border-radius: 8px;
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: #FFFFFF;
+
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .DialogContentMessageDelete {
+        width: 90%;
+        height: auto;
+        min-width: unset;
+        max-width: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .DialogTitleMessageDelete {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 16px;
+    }
+
+    .DialogContentMessageDelete div {
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        button {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+}
