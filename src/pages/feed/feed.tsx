@@ -24,10 +24,20 @@ export function Feed() {
     const navigate = useNavigate();
 
     const [atualization, setAtualization] = useState(0);
+    const [signOutHovered, setSignOutHovered] = useState(false);
 
     const { register, handleSubmit, reset, formState } = useForm<NewMessageFormInputs>({
         resolver: zodResolver(NewMessageFormSchema)
     });
+
+    const contentTextarea = document.getElementById('contentTextarea');
+
+    function resetTextareaSize() {
+        if (contentTextarea) {
+            contentTextarea.style.height = '';
+            contentTextarea.style.height = contentTextarea.scrollHeight + 'px';
+        }
+    }
 
     function handleCreateNewLogin(data: NewMessageFormInputs) {
 
@@ -46,6 +56,7 @@ export function Feed() {
             });
 
         reset();
+        resetTextareaSize();
     }
 
     return (
@@ -55,11 +66,14 @@ export function Feed() {
 
                 <div>
                     <span>{state.data.login}</span>
-                    <SignOut size={32}
-                        color="#ffffff"
+                    <SignOut
+                        size={32}
+                        color={signOutHovered ? '#ff0000' : '#ffffff'}
                         weight="bold"
-                        className='signOut'
+                        className="signOut"
                         onClick={() => navigate('/')}
+                        onMouseEnter={() => setSignOutHovered(true)}
+                        onMouseLeave={() => setSignOutHovered(false)}
                     />
                 </div>
             </header>
@@ -72,7 +86,11 @@ export function Feed() {
                     <input type="text" placeholder='Your title' required {...register('title')} />
 
                     <label>Content</label>
-                    <textarea placeholder='Your content' required maxLength={500} {...register('content')}></textarea>
+                    <textarea placeholder='Your content'
+                        required
+                        maxLength={500}
+                        {...register('content')}
+                        id="contentTextarea"></textarea>
 
                     <button disabled={!formState.isValid}>Create</button>
                 </form>
